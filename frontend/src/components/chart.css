@@ -1,7 +1,8 @@
 .chart-block {
-   margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
-.line{
-    height: 500px !important;
+.line {
+    height: 50vh;
+    width: 94vw !important;
 }

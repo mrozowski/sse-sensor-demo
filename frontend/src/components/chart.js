@@ -22,11 +22,20 @@ ChartJS.register(
     Legend
 );
 
-const Chart = (data) => {
-    const labels = ["2017", "2018", "2019", "2020", "2021", "2022"];
+const Chart = ({data = []}) => {
+    const labels = data.map(entry => entry.timestamp);
     const temperatureData = data.map(entry => entry.temperature);
     const humidityData = data.map(entry => entry.humidity);
     const options = {
+        maintainAspectRatio: false,
+        responsive: true,
+        xAxes: [{
+            type: 'time',
+            ticks: {
+                autoSkip: true,
+                maxTicksLimit: 20
+            }
+        }],
         plugins: {
             legend: {
                 position: "bottom",
@@ -50,6 +59,9 @@ const Chart = (data) => {
     }
 
 
+    const test = () => {
+        console.log(data);
+    }
 
     return (
         <div className={"chart-block"}>

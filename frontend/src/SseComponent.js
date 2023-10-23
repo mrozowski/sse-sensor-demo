@@ -14,9 +14,11 @@ const SseComponent = () => {
             const newData = JSON.parse(event.data);
             const { temperature, humidity } = newData;
 
-            setData(prevData => [...prevData, newData]);
+
             setTemperature(temperature);
             setHumidity(humidity);
+            setData(prevData => [...prevData, newData]);
+
         };
 
         eventSource.onerror = error => {
