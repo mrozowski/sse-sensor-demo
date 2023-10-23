@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Block from "./components/block";
+import Chart from "./components/chart"
 
 const SseComponent = () => {
     const [temperature, setTemperature] = useState(0.00);
@@ -13,7 +14,7 @@ const SseComponent = () => {
             const newData = JSON.parse(event.data);
             const { temperature, humidity } = newData;
 
-            //setData(prevData => [...prevData, newData]);
+            setData(prevData => [...prevData, newData]);
             setTemperature(temperature);
             setHumidity(humidity);
         };
@@ -29,13 +30,11 @@ const SseComponent = () => {
 
     return (
         <div className="sse-component">
-            <Block temp={temperature} title="Temperature" postfix="°C"/>
-            <Block temp={humidity} title="Humidity" postfix="%"/>
-            {/*<ul>*/}
-            {/*    {data.map((item, index) => (*/}
-            {/*        <li key={index}>{item}</li>*/}
-            {/*    ))}*/}
-            {/*</ul>*/}
+            <Chart data={data}/>
+            <div className={"block-section"}>
+                <Block temp={temperature} title="Temperature" postfix="°C"/>
+                <Block temp={humidity} title="Humidity" postfix="%"/>
+            </div>
         </div>
     );
 };

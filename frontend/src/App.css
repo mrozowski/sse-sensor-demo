@@ -12,5 +12,12 @@ body{
 
 .sse-component{
     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.block-section{
+    display: flex;
     justify-content: space-around;
+    width: 100%;
 }
