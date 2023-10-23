@@ -25,11 +25,11 @@ class SseController {
     return sink.asFlux();
   }
 
-  @Scheduled(fixedRateString = "3000")
-  public void run(){
-    var random = Math.random();
-    log.info("emit: {}", random);
-    sink.tryEmitNext(String.valueOf(random));
-  }
+//  @Scheduled(fixedRateString = "3000")
+//  public void run(){
+//    var random = Math.random();
+//    log.info("emit: {}", random);
+//    sink.tryEmitNext(String.valueOf(random));
+//  }
 
 }
